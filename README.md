@@ -4,34 +4,57 @@ You can use the [editor on GitHub](https://github.com/fikidedi/laravel/edit/main
 
 Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
-### Markdown a
+### Cara bypass data tanpa pake controller
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+Berikut ini cara bypass data pake compact
 
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+```
+Route::get('siswa', function() {
+    $siswa = ['Rasmus Lerdorf','Taylor Otwell','Brendan Eich','John Resig'];
+    //agar siswa dibaca kosong maka buat seperti ini $siswa = [];
+    return view('siswa.index',compact('siswa'));
+});
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+Berikut ini cara bypass data pake with
 
-### Jekyll Themes
+```
+Route::get('siswa', function() {
+	  $halaman = 'siswa'; //ini penanda halaman di menu yang aktif
+    $siswa = ['Rasmus Lerdorf','Taylor Otwell','Brendan Eich','John Resig'];
+    return view('siswa.index')->with('siswa', $siswa)->with('halaman', $halaman);
+});
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/fikidedi/laravel/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+```
 
-### Support or Contact
+Berikut ini cara bypass data pake tanda =>
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+```
+Route::get('siswa', function() {
+     $siswa = ['Rasmus Lerdorf','Taylor Otwell','Brendan Eich','John Resig'];
+     return view('siswa.index',['siswa' => $siswa]);
+});
+
+```
+
+### Cara bypass data lewat controller
+
+Buat route get nya dulu 
+
+Route::get('siswa','SiswaController@index');
+
+untuk buat file controller lewat artisan ketik peintah ini di cmd
+
+php artisan make:controller SiswaController
+
+```
+class SiswaController extends Controller
+{
+  public function index(){
+        $halaman = 'siswa';
+        $siswa_list = Siswa::all();
+        $jumlah_siswa = $siswa_list->count(); //menampilkan jumlah siswa
+        return view('siswa.index', compact('halaman','siswa_list','jumlah_siswa'));
+  }
+}
+```
