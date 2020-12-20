@@ -1,8 +1,11 @@
-## Welcome to GitHub Pages
+## Kumpulan Perintah Artisan
 
-You can use the [editor on GitHub](https://github.com/fikidedi/laravel/edit/main/README.md) to maintain and preview the content for your website in Markdown files.
+php artisan serve //server artisan
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+php artisan make:controller SiswaController //buat controller
+
+php artisan make:model Siswa //buat model siswa
+
 
 ### Cara bypass data tanpa pake controller
 
@@ -18,9 +21,9 @@ Route::get('siswa', function() {
 
 Berikut ini cara bypass data pake with
 
-```laravel
+```php
 Route::get('siswa', function() {
-	  $halaman = 'siswa'; //ini penanda halaman di menu yang aktif
+    $halaman = 'siswa'; //ini penanda halaman di menu yang aktif
     $siswa = ['Rasmus Lerdorf','Taylor Otwell','Brendan Eich','John Resig'];
     return view('siswa.index')->with('siswa', $siswa)->with('halaman', $halaman);
 });
@@ -29,7 +32,7 @@ Route::get('siswa', function() {
 
 Berikut ini cara bypass data pake tanda =>
 
-```
+```php
 Route::get('siswa', function() {
      $siswa = ['Rasmus Lerdorf','Taylor Otwell','Brendan Eich','John Resig'];
      return view('siswa.index',['siswa' => $siswa]);
@@ -47,7 +50,7 @@ untuk buat file controller lewat artisan ketik peintah ini di cmd
 
 php artisan make:controller SiswaController
 
-```laravel
+```php
 class SiswaController extends Controller
 {
   public function index(){
