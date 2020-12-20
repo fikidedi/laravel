@@ -6,6 +6,9 @@
 
 **php artisan make:model Siswa** *//buat model siswa*
 
+**php artisan make:migration create_siswa_table** *//buat migration siswa*
+
+**php artisan make:model Siswa -m** *//buat model sekaligus migration tablenya -m artinya migration*
 
 ### Cara bypass data tanpa pake controller
 
@@ -59,6 +62,12 @@ class SiswaController extends Controller
   }
 }
 ```
+
+### Buat tabel pake migration
+
+1. Pastikan sudah buat database dan setting file .env
+2. Buka cmd di folder laravelnya dan ketik perintah artisan migration
+3. 
 
 ### Cara isi database lewat route laravel
 
