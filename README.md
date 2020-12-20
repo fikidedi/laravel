@@ -42,13 +42,11 @@ Route::get('siswa', function() {
 
 ### Cara bypass data lewat controller
 
-Buat route get nya dulu 
+kode routenya seperti ini
 
 Route::get('siswa','SiswaController@index');
 
-untuk buat file controller lewat artisan ketik peintah ini di cmd
-
-php artisan make:controller SiswaController
+Kode di controllernya seperti ini
 
 ```php
 class SiswaController extends Controller
