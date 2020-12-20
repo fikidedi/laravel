@@ -8,7 +8,7 @@ Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://j
 
 Berikut ini cara bypass data pake compact
 
-```
+```php
 Route::get('siswa', function() {
     $siswa = ['Rasmus Lerdorf','Taylor Otwell','Brendan Eich','John Resig'];
     //agar siswa dibaca kosong maka buat seperti ini $siswa = [];
@@ -18,7 +18,7 @@ Route::get('siswa', function() {
 
 Berikut ini cara bypass data pake with
 
-```
+```laravel
 Route::get('siswa', function() {
 	  $halaman = 'siswa'; //ini penanda halaman di menu yang aktif
     $siswa = ['Rasmus Lerdorf','Taylor Otwell','Brendan Eich','John Resig'];
@@ -47,7 +47,7 @@ untuk buat file controller lewat artisan ketik peintah ini di cmd
 
 php artisan make:controller SiswaController
 
-```
+```laravel
 class SiswaController extends Controller
 {
   public function index(){
